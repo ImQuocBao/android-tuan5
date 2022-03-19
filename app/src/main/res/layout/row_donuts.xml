@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4DDDD">
+    android:background="#F4DDDD"
+    android:descendantFocusability="blocksDescendants"
+    >
 
     <ImageView
         android:id="@+id/imgView_main"
@@ -31,21 +33,16 @@
         app:layout_constraintStart_toEndOf="@+id/imgView_main"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/btn_details"
-        android:layout_width="50dp"
-        android:layout_height="41dp"
+    <TextView
+        android:id="@+id/textView_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgView_main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_Price"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/plus_button" />
+        android:layout_marginTop="12dp"
+        android:text="Spicy tasty donut family"
+        app:layout_constraintStart_toStartOf="@+id/textView_Header"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Header" />
 
     <TextView
         android:id="@+id/textView_Price"
@@ -60,15 +57,16 @@
         app:layout_constraintStart_toStartOf="@+id/textView_des"
         app:layout_constraintTop_toBottomOf="@+id/textView_des" />
 
-    <TextView
-        android:id="@+id/textView_des"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp"
-        android:text="Spicy tasty donut family"
-        app:layout_constraintStart_toStartOf="@+id/textView_Header"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Header" />
+    <ImageButton
+        android:id="@+id/imageView"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:backgroundTint="#00FFFFFF"
+        android:focusable="false"
+        app:layout_constraintBottom_toBottomOf="@+id/imgView_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_des"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/plus_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,8 +2,12 @@ package com.example.donut;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,23 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new DonutAdapter(this, R.layout.row_donuts, arrDonut);
         lvDonut.setAdapter(adapter);
+
+
+        lvDonut.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this, DetailsDonut.class);
+                Bundle b = new Bundle();
+                b.putString("name", arrDonut.get(i).getDonutName());
+                b.putString("des", arrDonut.get(i).getDonutDes());
+                b.putString("price", arrDonut.get(i).getDonutPrice());
+                b.putInt("img", arrDonut.get(i).getDonutImg());
+                intent.putExtras(b);
+
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void mapping() {
